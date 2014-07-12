@@ -1,0 +1,39 @@
+#region-directorioips.container
+  .region
+    .region-title.page-header
+      %h1= page_title!('Directorio ip')
+
+  .region
+    %p
+      %b Ip:
+      = @directorioip.ip
+    %p
+      %b Username:
+      = @directorioip.username
+    %p
+      %b Hostname:
+      = @directorioip.hostname
+    %p
+      %b Grupo:
+      = @directorioip.grupo
+    %p
+      %b Admin:
+      = @directorioip.admin_id
+    %p
+      %b Mac:
+      = @directorioip.mac
+    %p
+      %b Ubicacion actual:
+      = @directorioip.ubicacion_actual
+    %p
+      %b Empresa:
+      = @directorioip.empresa
+    %p
+      %b Observaciones:
+      = @directorioip.observaciones
+
+  .region
+    - if current_admin
+      .admin-controls
+        = link_to 'Editar', edit_directorioip_path(@directorioip), class: 'btn btn-success'
+        = link_to 'Regresar', directorioips_path, class: 'btn btn-warning'

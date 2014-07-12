@@ -1,0 +1,18 @@
+#region-cargos.container
+  .region
+    .page-header
+      %h1= page_title!('Cargo')
+
+  .region
+    %p
+      %b Nombre:
+      = @cargo.nombre
+    %p
+      %b Descripcion:
+      = @cargo.descripcion
+
+  .region
+    .admin-controls
+      - if current_admin        
+        = link_to 'Editar', edit_cargo_path(@cargo), class: 'btn btn-success'
+      = link_to 'Regresar', cargos_path, class: 'btn btn-warning'

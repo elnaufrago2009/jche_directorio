@@ -1,0 +1,61 @@
+.page-header
+  %h1= page_title!("Usuario: #{@user.nombre}")
+
+.region
+  .row 
+    .col-sm-5    
+      %table.table.table-condensed.table-striped
+        %tr
+          %td 
+            %b Nombre:
+          %td= @user.nombre
+        %tr
+          %td 
+            %b Apellido:
+          %td= @user.apellido
+        %tr
+          %td 
+            %b Cargo:
+          %td= @user.cargo.nombre
+        %tr
+          %td 
+            %b Area:
+          %td= @user.area.nombre
+        %tr
+          %td 
+            %b Empresa:
+          %td= @user.empresa.nombre
+        %tr
+          %td 
+            %b Fecha de Nacimiento
+          %td= @user.fecha_nacimiento
+        %tr
+          %td 
+            %b Dni:
+          %td= @user.dni
+        %tr 
+          %td 
+            %b Email
+          %td= @user.email
+        %tr
+          %td 
+            %b Movil 1
+          %td= @user.movil_1
+        %tr
+          %td 
+            %b Movil 2
+          %td= @user.movil_2
+        %tr
+          %td 
+            %b Telefono Fijo
+          %td= @user.telefono_fijo
+        %tr
+          %td
+            %b Nacionalidad
+          %td= @user.nacionalidad
+        %tr
+          %td
+            %b Estado Civil
+          %td= @user.observaciones
+      = link_to 'Regresar', users_path, class: 'btn btn-warning btn-sm'
+  

@@ -1,0 +1,48 @@
+= form_for @directorioip, :html => { class: 'form-horizontal', role: 'form' } do |f|
+  - if @directorioip.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@directorioip.errors.count, "error")}"
+      %ul
+        - @directorioip.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :ip, class: 'col-sm-2 control-label'
+    .col-sm-2
+      = f.text_field :ip, class: 'form-control', placeholder: "192.168.1.67"
+  .form-group
+    = f.label :username, class: 'col-sm-2 control-label'
+    .col-sm-2
+      = f.text_field :username, class: 'form-control', placeholder: 'mfafio01'
+  .form-group
+    = f.label :hostname, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = f.text_field :hostname, class: 'form-control', placeholder: 'mfafio01'
+  .form-group
+    = f.label :grupo, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = f.select :grupo, %w[Routers Routers/Switchs Clientes], {:include_blank => "Seleccionar"}, {class: 'form-control'}
+  .form-group
+    = f.label :admin_id, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = f.text_field :admin_id, class: 'form-control', value: current_admin.email, :disabled => "disabled"
+  .form-group
+    = f.label :mac, class: 'col-sm-2 control-label'
+    .col-sm-2
+      = f.text_field :mac, class: 'form-control', placeholder: "44-8A-5B-82-15-0D"
+  .form-group
+    = f.label :ubicacion_actual, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = f.select :ubicacion_actual,['J.Ch.Comercial S.A','Lizandro Nieves y Cia S.A.C', 'Evolution car Service Eirl', 'Neuma Center Perú S.A', 'Agropecuaria e Industrias Fafio S.A.', 'Centenario Market'], { }, class: 'form-control'
+  .form-group
+    = f.label :empresa, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = f.select :empresa, ['J.Ch.Comercial S.A','Lizandro Nieves y Cia S.A.C', 'Evolution car Service Eirl', 'Neuma Center Perú S.A', 'Agropecuaria e Industrias Fafio S.A.', 'Centenario Market'],{ include_blank: 'Seleccione'} , class: 'form-control'
+  .form-group
+    = f.label :observaciones, class: 'col-sm-2 control-label'
+    .col-sm-6
+      = f.text_field :observaciones, class: 'form-control', placeholder: 'Anotaciones inusuales de la computadora'
+  .form-group  
+    .col-sm-2
+    .col-sm-4
+      = f.submit 'Guardar', class: 'btn btn-default'

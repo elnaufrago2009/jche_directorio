@@ -1,0 +1,54 @@
+#region-personals.container
+  .region
+    .page-header
+      %h1= page_title!('Personal')
+
+  .region
+    %p
+      %b Nombre:
+      = @personal.nombre
+    %p
+      %b Apellido:
+      = @personal.apellido
+    %p
+      %b Cargo:
+      = @personal.cargo.nombre
+    %p
+      %b Area:
+      = @personal.area.nombre
+    %p
+      %b Empresa:
+      = @personal.empresa.nombre
+    %p
+      %b Fecha nacimiento:
+      = @personal.fecha_nacimiento
+    %p
+      %b Dni:
+      = @personal.dni
+    %p
+      %b Email:
+      = @personal.email
+    %p
+      %b Movil 1:
+      = @personal.movil_1
+    %p
+      %b Movil 2:
+      = @personal.movil_2
+    %p
+      %b Telefono fijo:
+      = @personal.telefono_fijo
+    %p
+      %b Nacionalidad:
+      = @personal.nacionalidad
+    %p
+      %b Estado civil:
+      = @personal.estado_civil
+    %p
+      %b Observaciones:
+      = @personal.observaciones
+
+  .region
+    .admin-controls
+      - if current_admin        
+        = link_to 'Editar', edit_personal_path(@personal), class: 'btn btn-success'
+      = link_to 'Regresar', personals_path, class: 'btn btn-warning'

@@ -1,0 +1,26 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'JCH Directorio', root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        = render 'layouts/navigation_links'
+      %ul.nav.navbar-nav.navbar-right
+        -if user_signed_in?
+          %li= link_to '<span class="glyphicon glyphicon-off"></span> Salir User'.html_safe, destroy_user_session_path, :method => :delete, class: 'right'          
+        - else
+          %li= link_to '<span class="glyphicon glyphicon-lock"></span> Login User'.html_safe, new_user_session_path, class: 'right'
+
+        - if admin_signed_in? 
+          
+          %li= link_to '<span class="glyphicon glyphicon-off"></span> Salir Admin', destroy_admin_session_path, :method => :delete, class: 'right'
+        - else
+          
+          %li= link_to '<span class="glyphicon glyphicon-lock"></span> Login Admin'.html_safe, new_admin_session_path, class: 'right' 
+
+          

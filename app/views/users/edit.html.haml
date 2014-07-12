@@ -1,0 +1,18 @@
+- page_title!('Editando usuario')
+
+#region-personals.container
+
+  .region
+    .page-header
+      %h1
+        Editando
+        %b
+          usuario
+
+  .region
+    = render 'form'
+
+  .region
+    .admin-controls
+      = link_to 'Ver', @user, class: 'btn btn-info'
+      = link_to 'Regresar', 'javascript:history.back(-1)', class: 'btn btn-warning'

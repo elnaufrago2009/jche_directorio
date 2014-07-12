@@ -1,0 +1,33 @@
+#region-personals.container
+
+  .region
+    .page-header
+      %h1= page_title!('Personals')
+
+    .region
+      - if current_admin
+        .admin-control
+          = link_to '<span class="glyphicon glyphicon-plus"></span> Crear Personal'.html_safe , new_personal_path, class: 'btn btn-primary'
+    %br
+      .table-responsive
+        %table.table
+          %tr
+            %th Nombre
+            %th Apellido
+            %th Cargo
+            %th Area
+            %th Empresa
+            %th Acciones
+
+          - @personals.each do |personal|
+            %tr
+              %td= current_user.nombre
+              %td= personal.apellido
+              %td= personal.cargo.nombre
+              %td= personal.area.nombre
+              %td= personal.empresa.nombre
+              %td
+                = link_to '<span class="glyphicon glyphicon-eye-open"></span> Ver'.html_safe, personal, class: 'btn btn-info btn-sm'
+                - if current_admin
+                  = link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_personal_path(personal), class: 'btn btn-success btn-sm'
+                  = link_to '<span class="glyphicon glyphicon-trash"></span> Eliminar'.html_safe, personal, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger btn-sm'

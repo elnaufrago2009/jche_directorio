@@ -1,0 +1,95 @@
+:javascript
+	$(document).ready(function(){ 
+		$('#user_fecha_nacimiento').datepicker({
+			format: 'yyyy-mm-dd',
+			language: 'es',
+			autoclose: true 
+		}); 
+	})
+
+:javascript
+	$(document).ready(function(){
+			$('#user_observaciones').each(function(i, elem) {
+				$(elem).wysihtml5();
+			});
+
+		})
+= form_for @user, :html => { class: 'form-horizontal', role: 'form' } do |f|
+	- if @user.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@user.errors.count, "error")}"
+			%ul
+				- @user.errors.full_messages.each do |msg|
+					%li= msg
+	.form-group
+		= f.label :email, class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.text_field :email, class: 'form-control', placeholder:'elnaufrago2009@hotmail.com'
+	.form-group
+		= f.label :password, class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.password_field :password, :autocomplete => 'off', class: 'form-control'
+	.form-group
+		= f.label :password_confirmation, class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.password_field :password_confirmation, class: 'form-control'
+	.form-group
+		= f.label :nombre, class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.text_field :nombre, class: 'form-control', placeholder:'Abraham Moises'
+	.form-group
+		= f.label :apellido, class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.text_field :apellido, class: 'form-control', placeholder:'Linares Oscco'
+	.form-group
+		= f.label :cargo_id,  class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.select :cargo_id, Cargo.all.collect {|x| [x.nombre, x.id]}, {include_blank:"Seleccione"},  class: 'form-control'
+	.form-group
+		= f.label :area_id, class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.select :area_id, Area.all.collect {|x| [x.nombre, x.id]} ,{include_blank: "Seleccione"}, class: 'form-control'
+	.form-group
+		= f.label :empresa_id, class: 'col-sm-2 control-label'
+		.col-sm-3
+			= f.select :empresa_id, Empresa.all.collect{|x| [x.nombre, x.id]}, {include_blank:"Seleccione"}, class: 'form-control'
+	.form-group
+		= f.label :fecha_nacimiento, class: 'col-sm-2 control-label'
+		.col-sm-2
+			= f.text_field :fecha_nacimiento, class: 'form-control', :"data-behaviour" => 'datepicker'
+	.form-group
+		= f.label :dni, class: 'col-sm-2 control-label'
+		.col-sm-2
+			= f.text_field :dni, class: 'form-control', placeholder:'42516258'
+	
+	.form-group
+		= f.label :movil_1, class: 'col-sm-2 control-label'
+		.col-sm-2
+			= f.text_field :movil_1, class: 'form-control', placeholder:'952631845'
+	.form-group
+		= f.label :movil_2, class: 'col-sm-2 control-label'
+		.col-sm-2
+			= f.text_field :movil_2, class: 'form-control', placeholder:'952684597'
+	.form-group
+		= f.label :telefono_fijo, class: 'col-sm-2 control-label'
+		.col-sm-2
+			= f.text_field :telefono_fijo, class: 'form-control', placeholder:'124563'
+	.form-group
+		= f.label :nacionalidad, class: 'col-sm-2 control-label'
+		.col-sm-2
+			= f.select :nacionalidad, ['Peruana','Extranjera'], {include_blank:'Seleccione'}, class: 'form-control'
+	.form-group
+		= f.label :estado_civil, class: 'col-sm-2 control-label'
+		.col-sm-2
+			= f.select :estado_civil,['Soltero','Casado'],{include_blank:'Seleccione'}, class: 'form-control'
+	.form-group
+		= f.label :observaciones, class: 'col-sm-2 control-label'
+		.col-sm-8
+			= f.text_area :observaciones, class: 'form-control'
+	.form-group
+		.col-sm-2
+		.col-sm-5
+			= f.submit 'Guardar', class: 'btn btn-default'
+
+
+			 

@@ -1,0 +1,32 @@
+#region-directorioips.container
+
+  .region
+    .region-title.page-header
+      %h1= page_title!('Directorio de Ips JCH')        
+    .region
+      - if current_admin
+        .admin-control
+          = link_to 'Crear Directorioip', new_directorioip_path, class: 'btn btn-primary'
+    %br
+      .table-responsive.row
+        .col-sm-10
+          %table.table.table-hover.table-condensed
+            %tr
+              %th Ip
+              %th Username
+              %th Hostname
+              %th Grupo
+              %th Admin
+              %th Acciones
+            - @directorioips.each do |directorioip|
+              %tr
+                %td= directorioip.ip
+                %td= directorioip.username
+                %td= directorioip.hostname
+                %td= directorioip.grupo
+                %td= directorioip.admin_id
+                %td
+                  = link_to raw("<span class='glyphicon glyphicon-eye-open'></span> Ver"), directorioip, class: 'btn btn-info btn-sm'
+                  - if current_admin
+                    = link_to raw("<span class='glyphicon glyphicon-edit'></span> Editar"), edit_directorioip_path(directorioip), class: 'btn btn-success btn-sm'
+                    = link_to raw("<span class='glyphicon glyphicon-trash'></span> Delete"), directorioip, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger btn-sm'

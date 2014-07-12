@@ -1,0 +1,18 @@
+- page_title!('Editando Empresa')
+
+#region-empresas.container
+
+  .region
+    .page-header
+      %h1
+        Editando
+        %b
+          empresa
+
+  .region
+    = render 'form'
+
+  .region
+    .admin-controls
+      = link_to 'Ver', @empresa, class: 'btn btn-info'
+      = link_to 'Regresar', 'javascript:history.back(-1)', class: 'btn btn-warning'

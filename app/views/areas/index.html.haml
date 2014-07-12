@@ -1,0 +1,29 @@
+#region-areas.container
+
+  .region
+    .page-header
+      %h1= page_title!('Areas')
+
+    .region
+      - if current_admin
+        .admin-control
+          = link_to 'Crear Area', new_area_path, class: 'btn btn-primary'
+      %br
+      .row
+        .col-sm-7        
+          .table-responsive
+            %table.table
+              %tr
+                %th Nombre
+                %th Descripcion
+                %th Acciones
+
+              - @areas.each do |area|
+                %tr
+                  %td= area.nombre
+                  %td= area.descripcion
+                  %td
+                    = link_to 'Ver', area, class: 'btn btn-info btn-sm'
+                    - if current_admin
+                      = link_to 'Editar', edit_area_path(area), class: 'btn btn-success btn-sm'
+                      = link_to 'Eliminar', area, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger btn-sm'
