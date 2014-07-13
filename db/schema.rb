@@ -66,24 +66,6 @@ ActiveRecord::Schema.define(version: 20140711223655) do
     t.datetime "updated_at"
   end
 
-  create_table "nombres", force: true do |t|
-    t.string   "apellido"
-    t.integer  "cargo_id"
-    t.integer  "area_id"
-    t.integer  "empresa_id"
-    t.string   "fecha_nacimiento"
-    t.string   "dni"
-    t.string   "mail"
-    t.string   "movil_1"
-    t.string   "movil_2"
-    t.string   "telefono_fijo"
-    t.string   "nacionalidad"
-    t.string   "estado_civil"
-    t.text     "observaciones"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "personals", force: true do |t|
     t.string   "nombre"
     t.string   "apellido"
