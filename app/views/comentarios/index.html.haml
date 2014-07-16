@@ -1,0 +1,32 @@
+#region-comentarios.container
+
+  .region
+    .region-title
+      %h1= page_title!('comentarios')
+
+    .region
+      - if current_admin
+        .admin-control
+          = link_to 'Crear Comentario', new_comentario_path, class: 'btn btn-primary'
+
+      .table-responsive
+        %table.table
+          %tr
+            %th Tiked
+            %th User
+            %th Admin
+            %th Content
+            %th
+            %th
+            %th
+
+          - @comentarios.each do |comentario|
+            %tr
+              %td= comentario.tiked_id
+              %td= comentario.user_id
+              %td= comentario.admin_id
+              %td= comentario.content
+              %td= link_to 'Ver', comentario, class: 'btn btn-info'
+              - if current_admin
+                %td= link_to 'Editar', edit_comentario_path(comentario), class: 'btn btn-success'
+                %td= link_to 'Eliminar', comentario, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger'

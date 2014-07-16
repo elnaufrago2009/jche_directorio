@@ -16,6 +16,9 @@
 //= require bootstrap
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
-//= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales
+
+//= require moment
+//= require bootstrap-datetimepicker
+//= require locales/bootstrap-datetimepicker.es.js
+
 //= require_tree .

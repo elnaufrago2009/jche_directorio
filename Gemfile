@@ -33,6 +33,8 @@ gem 'rails_layout'
 gem 'thin'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-wysihtml5-rails'
+gem 'momentjs-rails', '>= 2.5.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0.2'
 
 group :test do 
 	gem 'cucumber-rails', :require => false

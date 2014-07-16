@@ -1,0 +1,27 @@
+#region-tipo_soportes.container
+
+  .region
+    .page-header
+      %h1= page_title!('Tipo Soporte')
+
+    .region     
+      .admin-control
+        = link_to '<span class="glyphicon glyphicon-plus"></span> Crear Tipo soporte'.html_safe, new_tipo_soporte_path, class: 'btn btn-primary btn-sm'
+      %br
+      .row
+        .col-sm-6
+          .table-responsive
+            %table.table.table-condensed
+              %tr
+                %th Nombre
+                %th Descripcion
+                %th Acciones                
+
+              - @tipo_soportes.each do |tipo_soporte|
+                %tr
+                  %td= tipo_soporte.nombre
+                  %td= tipo_soporte.descripcion
+                  %td
+                    = link_to 'Ver', tipo_soporte, class: 'btn btn-info btn-sm'                  
+                    = link_to 'Editar', edit_tipo_soporte_path(tipo_soporte), class: 'btn btn-success btn-sm'
+                    = link_to 'Eliminar', tipo_soporte, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger btn-sm'

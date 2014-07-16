@@ -1,0 +1,18 @@
+- page_title!('Editando tiked')
+
+#region-tikeds.container
+
+  .region
+    .region-title
+      %h1
+        Editando
+        %b
+          tiked
+
+  .region
+    = render 'form'
+
+  .region
+    .admin-controls
+      = link_to 'Ver', @tiked, class: 'btn btn-info'
+      = link_to 'Regresar', 'javascript:history.back(-1)', class: 'btn btn-warning'

@@ -1,0 +1,46 @@
+:javascript
+  $(function () {
+    $('#tiked_fecha_hora_atencion').datetimepicker({
+      language: 'es'
+    });
+  });
+
+
+= form_for @tiked, :html => { class: 'form-horizontal', role: 'form' } do |f|
+  - if @tiked.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tiked.errors.count, "error")}"
+      %ul
+        - @tiked.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :observaciones, class: 'col-sm-2 control-label'
+    .col-sm-5
+      = f.text_area :observaciones, class: 'form-control'
+  .form-group
+    = f.label :user_id, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = text_field_tag :user_id, current_user.email, class: 'form-control', :disabled => "disabled"
+      = f.hidden_field :user_id
+  .form-group
+    = f.label :tipo_soporte_id, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = f.select :tipo_soporte_id, TipoSoporte.all.collect{|x| [x.nombre, x.id]}, {}, class: 'form-control'    
+  - if  params[:action] != 'new'
+    .form-group
+      = f.label :estados, class: 'col-sm-2 control-label'
+      .col-sm-3
+        = f.select :estado_id, Estado.all.collect{|x| [x.nombre, x.id]}, {}, class: 'form-control'
+  
+  .form-group
+    = f.label :Soporte, class: 'col-sm-2 control-label'
+    .col-sm-3
+      = f.select :admin_id, Admin.all.collect{|x| [x.email, x.id]}, {}, class: 'form-control'
+  
+  .form-group
+    .col-sm-2
+    .col-sm-5
+      = button_tag(type: 'submit', class: "btn btn-primary") do 
+        %span.glyphicon.glyphicon-lock
+        Crear Tiked  
+      

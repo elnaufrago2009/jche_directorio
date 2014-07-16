@@ -1,0 +1,17 @@
+#region-reclamos.container
+  .region
+    .page-header
+      %h1= page_title!('Reclamo')
+
+  .region
+    %p
+      %b Nombre:
+      = @reclamo.nombre
+    %p
+      %b Descripcion:
+      = @reclamo.descripcion
+
+  .region
+    .admin-controls
+      = link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_reclamo_path(@reclamo), class: 'btn btn-success btn-sm'
+      = link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, reclamos_path, class: 'btn btn-warning btn-sm'

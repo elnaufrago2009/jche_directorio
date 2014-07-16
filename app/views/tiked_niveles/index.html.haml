@@ -1,0 +1,27 @@
+#region-tiked_niveles.container
+
+  .region
+    .page-header
+      %h1= page_title!('Tiked Nivel')
+
+    .region      
+      .admin-control
+        = link_to '<span class="glyphicon glyphicon-plus"></span> Crear Tiked nivel'.html_safe, new_tiked_nivele_path, class: 'btn btn-primary btn-sm'
+      %br
+      .row
+        .col-sm-6        
+          .table-responsive
+            %table.table.table-condensed
+              %tr
+                %th Nombre
+                %th Descripcion
+                %th Acciones                
+
+              - @tiked_niveles.each do |tiked_nivele|
+                %tr
+                  %td= tiked_nivele.nombre
+                  %td= tiked_nivele.descripcion
+                  %td
+                    = link_to 'Ver', tiked_nivele, class: 'btn btn-info btn-sm'                  
+                    = link_to 'Editar', edit_tiked_nivele_path(tiked_nivele), class: 'btn btn-success btn-sm'
+                    = link_to 'Eliminar', tiked_nivele, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger btn-sm'

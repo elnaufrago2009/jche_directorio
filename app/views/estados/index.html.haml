@@ -1,0 +1,27 @@
+#region-estados.container
+
+  .region
+    .page-header
+      %h1= page_title!('Estados')
+
+    .region      
+      .admin-control
+        = link_to '<span class="glyphicon glyphicon-plus"></span> Crear Estado'.html_safe, new_estado_path, class: 'btn btn-primary btn-sm'
+      %br
+      .row
+        .col-sm-6
+          .table-responsive
+            %table.table.table-condensed
+              %tr
+                %th Nombre
+                %th Descripcion
+                %th Acciones            
+
+              - @estados.each do |estado|
+                %tr
+                  %td= estado.nombre
+                  %td= estado.descripcion
+                  %td
+                    = link_to '<span class="glyphicon glyphicon-eye-open"></span> Ver'.html_safe, estado, class: 'btn btn-info btn-sm'              
+                    = link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_estado_path(estado), class: 'btn btn-success btn-sm'
+                    = link_to '<span class="glyphicon glyphicon-trash"></span> Eliminar'.html_safe, estado, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger btn-sm'

@@ -1,0 +1,33 @@
+#region-tikeds.container
+  .region
+    .region-title
+      %h1= page_title!('tiked')
+
+  .region
+    %p
+      %b User:
+      = @tiked.user_id
+    %p
+      %b Tipo soporte:
+      = @tiked.tipo_soporte_id
+    %p
+      %b Observaciones:
+      = @tiked.observaciones
+    %p
+      %b Tiked nivele:
+      = @tiked.tiked_nivele_id
+    %p
+      %b Admin:
+      = @tiked.admin_id
+    %p
+      %b Fecha hora atencion:
+      = @tiked.fecha_hora_atencion
+    %p
+      %b Tiempo soporte:
+      = @tiked.tiempo_soporte_id
+
+  .region
+    - if current_admin
+      .admin-controls
+        = link_to 'Editar', edit_tiked_path(@tiked), class: 'btn btn-success'
+    = link_to 'Regresar', tikeds_path, class: 'btn btn-warning'

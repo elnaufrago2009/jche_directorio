@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711223655) do
+ActiveRecord::Schema.define(version: 20140715142707) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20140711223655) do
     t.datetime "updated_at"
   end
 
+  create_table "comentarios", force: true do |t|
+    t.integer  "tiked_id"
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "directorioips", force: true do |t|
     t.string   "ip"
     t.string   "username"
@@ -66,6 +75,31 @@ ActiveRecord::Schema.define(version: 20140711223655) do
     t.datetime "updated_at"
   end
 
+  create_table "estados", force: true do |t|
+    t.string   "nombre"
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nombres", force: true do |t|
+    t.string   "apellido"
+    t.integer  "cargo_id"
+    t.integer  "area_id"
+    t.integer  "empresa_id"
+    t.string   "fecha_nacimiento"
+    t.string   "dni"
+    t.string   "mail"
+    t.string   "movil_1"
+    t.string   "movil_2"
+    t.string   "telefono_fijo"
+    t.string   "nacionalidad"
+    t.string   "estado_civil"
+    t.text     "observaciones"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "personals", force: true do |t|
     t.string   "nombre"
     t.string   "apellido"
@@ -81,6 +115,48 @@ ActiveRecord::Schema.define(version: 20140711223655) do
     t.string   "nacionalidad"
     t.string   "estado_civil"
     t.text     "observaciones"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reclamos", force: true do |t|
+    t.string   "nombre"
+    t.text     "descripcion"
+    t.integer  "tiked_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tiempo_soportes", force: true do |t|
+    t.string   "nombre"
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tiked_niveles", force: true do |t|
+    t.string   "nombre"
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tikeds", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "tipo_soporte_id"
+    t.text     "observaciones"
+    t.integer  "tiked_nivele_id"
+    t.integer  "admin_id"
+    t.datetime "fecha_hora_atencion"
+    t.integer  "tiempo_soporte_id"
+    t.integer  "estado_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipo_soportes", force: true do |t|
+    t.string   "nombre"
+    t.text     "descripcion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :tikeds
+
+  resources :reclamos
+
+  resources :estados
+
+  resources :comentarios
+
+  resources :tiempo_soportes
+
+  resources :tiked_niveles
+
+  resources :tipo_soportes
+
   devise_for :users
   resources :users
   resources :personals

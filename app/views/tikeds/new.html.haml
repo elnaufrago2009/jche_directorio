@@ -1,0 +1,18 @@
+- page_title!('Creando tiked')
+
+#region-tikeds.container
+
+  .region
+    .page-header      
+      %h1        
+        Crear
+        %b
+          Tiked
+        %span.glyphicon.glyphicon-lock.btn-lgg
+
+  .region
+    = render 'form'
+
+  .region
+    .admin-controls
+      = link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, 'javascript:history.back(-1)', class: 'btn btn-warning btn-sm'

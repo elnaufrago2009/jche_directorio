@@ -7,13 +7,6 @@
     }); 
   })
 
-:javascript
-  $(document).ready(function(){
-      $('#personal_observaciones').each(function(i, elem) {
-        $(elem).wysihtml5();
-      });
-
-    })
 = form_for @personal, :html => { class: 'form-horizontal', role: 'form' } do |f|
   - if @personal.errors.any?
     #error_explanation

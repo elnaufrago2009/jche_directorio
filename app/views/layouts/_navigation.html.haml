@@ -18,7 +18,7 @@
 
         - if admin_signed_in? 
           
-          %li= link_to '<span class="glyphicon glyphicon-off"></span> Salir Admin', destroy_admin_session_path, :method => :delete, class: 'right'
+          %li= link_to '<span class="glyphicon glyphicon-off"></span> Salir Admin'.html_safe, destroy_admin_session_path, :method => :delete, class: 'right'
         - else
           
           %li= link_to '<span class="glyphicon glyphicon-lock"></span> Login Admin'.html_safe, new_admin_session_path, class: 'right' 

@@ -1,0 +1,17 @@
+#region-tiempo_soportes.container
+  .region
+    .page-header
+      %h1= page_title!('Tiempo Soporte')
+
+  .region
+    %p
+      %b Nombre:
+      = @tiempo_soporte.nombre
+    %p
+      %b Descripcion:
+      = @tiempo_soporte.descripcion
+
+  .region
+    .admin-controls
+      = link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_tiempo_soporte_path(@tiempo_soporte), class: 'btn btn-success btn-sm'
+      = link_to '<span class="glyphicon glyphicon-arrow-left"></span> Regresar'.html_safe, tiempo_soportes_path, class: 'btn btn-warning btn-sm'

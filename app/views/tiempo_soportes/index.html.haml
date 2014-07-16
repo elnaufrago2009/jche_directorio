@@ -1,0 +1,27 @@
+#region-tiempo_soportes.container
+
+  .region
+    .page-header
+      %h1= page_title!('Tiempo Soporte')
+
+    .region      
+      .admin-control
+        = link_to '<span class="glyphicon glyphicon-plus"></span> Crear Tiempo soporte'.html_safe, new_tiempo_soporte_path, class: 'btn btn-primary btn-sm'
+      %br
+      .row
+        .col-sm-6
+          .table-responsive
+            %table.table.table-condensed
+              %tr
+                %th Nombre
+                %th Descripcion
+                %th Acciones                       
+
+              - @tiempo_soportes.each do |tiempo_soporte|
+                %tr
+                  %td= tiempo_soporte.nombre
+                  %td= tiempo_soporte.descripcion
+                  %td
+                    = link_to '<span class="glyphicon glyphicon-eye-open"></span> Ver'.html_safe, tiempo_soporte, class: 'btn btn-info btn-sm'              
+                    = link_to '<span class="glyphicon glyphicon-edit"></span> Editar'.html_safe, edit_tiempo_soporte_path(tiempo_soporte), class: 'btn btn-success btn-sm'
+                    = link_to '<span class="glyphicon glyphicon-trash"></span> Eliminar'.html_safe, tiempo_soporte, :method => :delete, :data => { :confirm => '¿Estás Seguro?' }, class: 'btn btn-danger btn-sm'
